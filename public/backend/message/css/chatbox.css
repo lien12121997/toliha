@@ -1,0 +1,444 @@
+
+/* _______________ Chatbox _______________*/
+
+.container-main {
+    margin-bottom: 100px;
+    margin-top: 25px;
+}
+.btn_quote {
+    border: none;
+    background: #c1272c;
+    color: white;
+    padding: 5px 20px;
+    outline: none;
+}
+.btn_quote:hover {
+	background: #990000;
+}
+.box_main .bar_checked, .box_main .mark_read {
+    display: none;
+}
+.clear_box {
+    border-top: 1px solid #ccc;
+}
+.box_right {
+    padding: 0;
+    margin-top: 20px;
+}
+.box_content, .box_chat, .box_item_right ul {
+    padding: 0 !important
+    ;
+}
+.box_content {
+    margin-top: 20px;
+}
+.box_chat h3 {
+    font-weight: bold;
+}
+.box_chat a {
+    color: black;
+}
+.box_left {
+    border: 1px solid #ccc;
+    padding: 0 !important;
+}
+.box_item ul li {
+    list-style: none;
+    float: left;
+}
+.box_item {
+    border-top: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+}
+.box_item:first-child {
+    border-top: none;
+}
+.box_item_left {
+    width: 7%;
+    float: left;
+}
+.box_item_right {
+    width: 93%;
+    float: left;
+}
+.box_item_2 {
+    width: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 29px;
+    font-weight: bold;
+    padding-top: 7px;
+}
+.box_chat a:hover {
+    text-decoration: underline;
+}
+.box_item_3 {
+    width: 45%;
+    padding-left: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 29px;
+    padding-top: 7px;
+}
+.box_item_4 {
+    list-style: none;
+    width: 25%;
+    text-align: right;
+    float: right !important;
+    padding-top: 7px;
+}
+.content_messages {
+    display: none;
+    padding-left: 15px;
+    padding-top: 30px;
+}
+.box_right a {
+    color: #E55400; 
+}
+.box_right_top, .box_right_bottom {
+    border: 1px solid #ccc;
+    padding: 0;
+}
+.box_right_top h3 {
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.box_right_top p {
+    padding: 15px 0px 15px 10px;
+}
+.bar_right_top img {
+    width: 35%;
+    float: left;
+    border-radius: 50%;
+}
+.bar_right_top p {
+    float: left;
+    width: 65%;
+    padding-left: 15px;
+    padding-top: 10px;
+}
+.bar_right_top {
+    padding-top: 10px;
+    background: #FBFBFA;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+.bar_right_bot h3 {
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+.reply_form {
+	display: none;
+    margin-top: 30px;
+}
+.reply_user {
+    font-weight: bold;
+}
+.messages_form textarea {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-color: #ccc;
+    outline: none;
+}
+.btn_send {
+    float: left;
+    border: none;
+    background: #F56400;
+    font-weight: bold;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    outline: none;
+}
+.btn_send:hover {
+	background: #EE7621;
+}
+.reply_attact input {
+    display: none !important;
+}
+.reply_attact button {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    background: white;
+    margin-top: 15px;
+    float: right;
+    outline: none;
+}
+.reply_attact button:hover {
+	background: #eee;
+}
+.reply_box_btn {
+    border: 1px solid #ccc;
+    margin-top: -5px;
+    border-top: none;
+    padding-bottom: 15px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    display: inline-block;
+    width: 100%;
+}
+.messages_form .file_img {
+    float: left;
+    padding-right: 10px;
+    margin-top: 25px;
+}
+#reply_result_img {
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+}
+.messages_form .file_img span {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 3px;
+}
+.messages_form .file_img i {
+    padding-left: 10px;
+}
+.show_order:hover {
+    text-decoration: underline;
+}
+.order_summary {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;  
+}
+.order_summarry {
+    display: none;
+}
+.order_summarry {
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.content_order {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.order_top, .order_center, .order_bottom  {
+    background: white;
+}
+.order_top {
+    padding-top: 20px;
+    background: #FBFBFA;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+.order_top img {
+    width: 90%;
+}
+.order_top p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.order_top a {
+    color: black;
+}
+.order_top span {
+    position: absolute;
+    font-size: 20px;
+    top: 5px;
+    right: 10px;
+    color: #ccc;
+}
+.order_center {
+    padding-top: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+.order_center a, .order_bottom a {
+    color: #E55400;
+}
+.order_center p {
+    font-weight: bold;
+}
+.order_center img {
+    width: 40%;
+}
+.order_center ul li {
+    float: left;
+    list-style: none;
+    border-right: 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.order_center ul li:last-child {
+    border-right: none;
+}
+.order_bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.order_bottom button {
+    float: right;
+    background: #e65c00;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-left: 20px;
+}
+.order_bottom p {
+    text-align: right;
+    padding-top: 12px;
+}
+.past_conversations {
+    border-top: 1px solid #ccc;
+    padding: 0;
+}
+.past_conversations h3 {
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin: 15px 15px 0 15px ;
+    font-weight: bold;
+}
+.past_conversations ul li {
+    list-style: none;
+}
+.past_conversations ul {
+    padding: 15px;
+}
+.past_li_bottom {
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+}
+.past_li_top {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box_you {
+    background: #eee;
+}
+.box_item_left img {
+    border-radius: 50%;
+}
+.no_messages {
+    display: none;
+    text-align: center;
+}
+.no_messages img {
+    width: 200px;
+    margin: auto;
+    padding: 20px;
+}
+.view_item {
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0;
+    background: #FBFBFA;
+    border-top: 1px solid #ccc;
+    display: inline-block;
+}
+.pointer {
+    cursor: pointer;
+}
+.box_count {
+    display: none;
+}
+.box_count:first-child {
+    display: inline-block;
+}
+.content_messages a {
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    float: left;
+    margin-right: 5px;
+    display: inline;
+}
+.service_form {
+    padding-left: 15px;
+    margin-top: 5px;
+}
+.content_messages p {
+	margin-bottom: 0;
+    padding-left: 10px;
+}
+.bar_table {
+    padding: 0px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #FBFBFA;
+}
+
+@media all and (max-width: 992px) { 
+    .content_tittle h3 {
+        margin-top: 20px;
+    }
+    .box_item {
+        margin-bottom: -5px;
+    }
+    .bar_right_top img {
+        width: 15%;
+    }
+    .bar_right_top p {
+        padding-left: 30px;
+        padding-top: 20px;
+        font-size: 20px;
+    }
+    .box_right {
+        margin-bottom: 40px;
+    }
+    .box_main {
+        padding-left: 15px;
+    }
+    .container-main {
+        padding: 0 !important;
+    }
+}
+
+@media all and (max-width: 480px) { 
+    .box_item_4 {
+        width: 30%;
+    }
+    .box_item_2 {
+        width: 25%;
+    }
+    .box_item_left {
+        width: 12%;
+    }
+    .box_item_right {
+        width: 85%;
+    }
+    .bar_right_top p {
+        padding-top: 7px;
+        font-size: 17px;
+    }
+    .side_messages, .box_main{
+        padding: 0 !important;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .box_item_left {
+        width: 15%;
+    }
+    .reply_form {
+        padding: 0;
+    }
+}

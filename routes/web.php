@@ -18,9 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form', [FormController::class, 'showForm'])->name('form');
-Route::post('/form', [FormController::class, 'postForm'])->name('post.form');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+    Route::get('/form', [FormController::class, 'showForm'])->name('form');
+	Route::post('/form', [FormController::class, 'postForm'])->name('post.form');
+
+	Route::get('/list', [FormController::class, 'list'])->name('form.list');
+	Route::get('/edit/{id}', [FormController::class, 'editForm'])->name('form.edit');
+	Route::get('/delete/{id}', [FormController::class, 'deleteForm'])->name('form.delete');
+});

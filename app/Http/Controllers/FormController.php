@@ -8,15 +8,19 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
+use App\Http\Repositories\FormRepo;
 use App\Http\Requests\StoreFormRequest;
 
 class FormController extends Controller
 {
+    function __construct(FormRepo $formRepo) {
+        $this->formRepo = $formRepo;
+    }
 
     public function showForm()
     {
     	$this->data = [
-            'title'        => 'Form',
+            'title' => 'Form',
         ];
 
         return view('form', $this->data);
@@ -42,6 +46,18 @@ class FormController extends Controller
             return redirect()->back()->withInput()->withErrors(['msg' => 'Cannot update cause something wrong.']);
         }
 
-        return redirect()->back()->with('msg', 'Successfully');
+        return redirect()->route('form.list')->with('msg', 'Successfully');
+    }
+
+    public function list(Request $request) {
+        $this->data = [
+            'title' => 'Form',
+        ];
+
+        if($request->ajax()) {
+            return $this->formRepo->list();
+        }
+
+        return view('list', $this->data);
     }
 }
