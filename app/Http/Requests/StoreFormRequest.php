@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class StoreFormRequest extends FormRequest
 {
@@ -36,15 +37,29 @@ class StoreFormRequest extends FormRequest
      */
     public function rules()
     {   
+        if (!empty($this->input('user_id'))) {
+            $user = User::find($this->user_id);    
+        }
+
         $rules = [
             'account_type' => 'required',
             'name'         => 'required|max:255',
-            'email'        => 'required|email|max:255|unique:users,email',
-            'phone'        => 'required|max:255|unique:users,phone',
             'password'     => 'required|max:255',
             'status'       => 'required',
             'code_perfix'  => 'required|max:255',
         ];
+
+        if (!empty($user) && $user->email != $this->input('email')) {
+            $rules['email'] = 'required|email|max:255|unique:users,email';
+        } else {
+            $rules['email'] = 'required|email|max:255';
+        }
+
+        if (!empty($user) && $user->phone != $this->input('phone')) {
+            $rules['phone'] = 'required|max:255|unique:users,phone';
+        } else {
+            $rules['phone'] = 'required|max:255';
+        }
 
         return $rules;
     }

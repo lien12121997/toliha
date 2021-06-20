@@ -37,9 +37,9 @@
 
                     <div class="form-group{{ $errors->has('account_type') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
-                            <input type="radio" class="form-control" name="account_type" value="0"> <span>Cá nhân</span>
+                            <input type="radio" class="form-control" name="account_type" value="0" {{!empty($user) && $user->account_type == 0 ? 'checked' : ''}}> <span>Cá nhân</span>
 
-                            <input type="radio" class="form-control" name="account_type" value="1"> <span>Tổ chức</span>
+                            <input type="radio" class="form-control" name="account_type" value="1" {{!empty($user) && $user->account_type == 1 ? 'checked' : ''}}> <span>Tổ chức</span>
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('account_type'))
@@ -52,7 +52,7 @@
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}" autofocus placeholder="Tên *">
+                            <input type="text" class="form-control" name="name" value="{{ old('name', isset($user) ? $user->name : null) }}" autofocus placeholder="Tên *">
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('name'))
@@ -65,7 +65,7 @@
 
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
-                            <input type="text" class="form-control" name="email" value="{{ old('email') }}" autofocus placeholder="Email *">
+                            <input type="text" class="form-control" name="email" value="{{ old('email', isset($user) ? $user->email : null) }}" autofocus placeholder="Email *">
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('email'))
@@ -78,7 +78,7 @@
 
                     <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
-                            <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" autofocus placeholder="SDT *">
+                            <input type="text" class="form-control" name="phone" value="{{ old('phone', isset($user) ? $user->phone : null) }}" autofocus placeholder="SDT *">
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('phone'))
@@ -91,7 +91,7 @@
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
-                            <input id="password" type="password" class="form-control" name="password" value="{{ old('password') }}" autofocus placeholder="Mật khẩu *">
+                            <input id="password" type="password" class="form-control" name="password" value="{{ old('password', isset($user) ? $user->password : null) }}" autofocus placeholder="Mật khẩu *">
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('password'))
@@ -105,7 +105,7 @@
                     <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
                             <label for="name">Trạng thái *: </label>
-                            <input id="name" type="checkbox" name="status" value="1">
+                            <input id="name" type="checkbox" name="status" value="1" {{!empty($user) && $user->status == 1 ? 'checked' : ''}}>
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('status'))
@@ -118,7 +118,7 @@
 
                     <div class="form-group{{ $errors->has('code_perfix') ? ' has-error' : '' }}">
                         <div class="col-md-12 input-group">
-                            <input id="code_perfix" type="text" class="form-control" name="code_perfix" value="{{ old('code_perfix') }}" autofocus placeholder="Mã Perfix">
+                            <input id="code_perfix" type="text" class="form-control" name="code_perfix" value="{{ old('code_perfix', isset($user) ? $user->code_perfix : null) }}" autofocus placeholder="Mã Perfix">
                         </div>
                         <div class="col-md-12 error-block">
                             @if ($errors->has('code_perfix'))
@@ -129,6 +129,7 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="user_id" value="{{!empty($user) ? $user->id : ''}}">
                     <button type="submit">Lưu</button>
                 </form>
             </div>
